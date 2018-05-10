@@ -5,7 +5,7 @@ $(document).ready(function(){
     loadBooks();
     function click (id) {
             $.ajax({
-            url: "http://localhost:8282/books/"+id,
+            url: "http://localhost:8080/book-repository/books/"+id,
             type: "GET",
             dataType : "json",
             success: function( json ) {
@@ -22,7 +22,7 @@ $(document).ready(function(){
     
     function loadBooks() {
         $.ajax({
-            url: "http://localhost:8282/books/",
+            url: "http://localhost:8080/book-repository/books/",
             type: "GET",
             dataType : "json",
             success: function( json ) {
@@ -62,7 +62,7 @@ $(document).ready(function(){
                     'Content-Type': 'application/json' 
                 },  
                 type: "POST",
-                url: 'http://localhost:8282/books/',
+                url: 'http://localhost:8080/book-repository/books/',
                 dataType: 'json',
                 async: false,
                 data: JSON.stringify(book),
@@ -82,7 +82,7 @@ $(document).ready(function(){
         var delId = $(this).data("id");
         console.log(delId);
         $.ajax({
-            url: "http://localhost:8282/books/"+delId,
+            url: "http://localhost:8080/book-repository/books/"+delId,
             type: "DELETE",
             dataType : "json",
             success: function( json ) {
